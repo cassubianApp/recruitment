@@ -26,7 +26,7 @@ const ProfileRoute = connect(
     );
 });
 
-const MessagesRoute = connect(
+const EditRoute = connect(
     state => ({
       user: state.profile.user
     }),
@@ -74,12 +74,12 @@ export default () => {
         index: 0,
         routes: [
             { key: 'profil', title: t('profile'), icon: 'account' },
-            { key: 'messages', title: t('editProfile'), icon: 'message' },
+            { key: 'edit', title: t('editProfile'), icon: 'message' },
         ]
     }),
     renderScene = BottomNavigation.SceneMap({
         profil: ProfileRoute,
-        messages: MessagesRoute
+        edit: EditRoute
     }),
     handleIndexChange = index => setState({ ...state, index: index });
 

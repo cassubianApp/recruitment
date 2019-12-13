@@ -2,14 +2,11 @@ import React from 'react';
 import {
     View
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
 
 //ui
 import { Card, Title, Paragraph, Avatar } from 'react-native-paper';
 
-export default ({user}) => {
-
-    const { t } = useTranslation();
+export default ({user, pictureId}) => {
 
     return(
         <View style={{flex: 1, width: '100%'}}>
@@ -19,7 +16,7 @@ export default ({user}) => {
                     <Title>{user.firstName}</Title>
                     <Paragraph>{user.lastName}</Paragraph>
                 </Card.Content>
-                <Card.Cover source={{ uri: 'https://picsum.photos/709' }} />
+                <Card.Cover source={{ uri: 'https://picsum.photos/' + pictureId }} />
             </Card>
         </View>
     )

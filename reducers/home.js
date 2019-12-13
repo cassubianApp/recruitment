@@ -1,12 +1,12 @@
-import { VisibilityFilters } from '../actions'
-
-const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
+const RandomPicture = (state = {pictureId: 700}, action) => {
   switch (action.type) {
-    case 'SET_VISIBILITY_FILTER':
-      return action.filter
+    case 'SET_RANDOM_PICTURE':
+      return {
+        pictureId: action.pictureId
+      }
     default:
       return state
   }
 }
 
-export default visibilityFilter
+export default RandomPicture;

@@ -3,11 +3,12 @@ import {
     View
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import normalize from 'react-native-normalize';
 
 //ui
-import { Text, Avatar, Chip } from 'react-native-paper';
+import { Text, Avatar, Chip, Button } from 'react-native-paper';
 
-export default ({user}) => {
+export default ({user, getNewPictureId}) => {
 
     const { t } = useTranslation();
 
@@ -22,6 +23,9 @@ export default ({user}) => {
             >
                 {user.name}
             </Chip>
+            <Button style={{marginTop:  normalize(10)}} icon="image" mode="contained" onPress={() => getNewPictureId()}>
+                {t('randomPicture')}
+            </Button>
         </View>
     )
 };

@@ -3,25 +3,29 @@ import {
     SafeAreaView
 } from 'react-native';
 import normalize from 'react-native-normalize';
-import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux';
 
 //sections
-import HomeSectionOne from './HomeSectionOne';
-import HomeSectionTwo from './HomeSectionTwo';
+import HomeSectionOne from '../components/HomeSectionOne';
+import HomeSectionTwo from '../components/HomeSectionTwo';
+
+//action
+import { RandomPicture } from '../actions';
 
 export default connect(
     state => ({
-      user: state.profile.user
+        user: state.profile.user,
+        pictureId: state.home.pictureId
+    }),
+    (dispatch) => ({
+        getNewPictureId: () => dispatch(RandomPicture())
     })
-  )(({user}) => {
-
-    const { t } = useTranslation();
+  )(({user, pictureId, getNewPictureId}) => {
 
     return(
         <SafeAreaView style={{flex: 1, alignItems: 'center', paddingTop: normalize(40)}}>
-            <HomeSectionOne user={user} />
-            <HomeSectionTwo user={user} />
+            <HomeSectionOne user={user} getNewPictureId={getNewPictureId} />
+            <HomeSectionTwo user={user} pictureId={pictureId} />
         </SafeAreaView>
     )
 });

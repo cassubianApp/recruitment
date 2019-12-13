@@ -1,13 +1,6 @@
 import { LoginManager } from 'react-native-fbsdk';
 
-export const VisibilityFilters = {
-  SHOW_ALL: 'SHOW_ALL',
-  SHOW_COMPLETED: 'SHOW_COMPLETED',
-  SHOW_ACTIVE: 'SHOW_ACTIVE'
-};
-
 export const user = {
-  token: undefined,
   user: {
     id: undefined,
     name: undefined,
@@ -43,10 +36,16 @@ export const Logout = () => {
 
 export const SaveNewUser = user => {
 
-  LoginManager.logOut();
-
   return {
     type: 'SAVE_NEW_USER',
     user
+  }
+};
+
+export const RandomPicture = () => {
+
+  return {
+    type: 'SET_RANDOM_PICTURE',
+    pictureId: Math.floor(Math.random() * 700)
   }
 };

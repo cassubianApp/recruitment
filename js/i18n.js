@@ -18,6 +18,7 @@ i18next
             surname: 'Surname',
             save: 'save',
             saveUserAlert: 'user was saved',
+            randomPicture: 'random picture',
           },
         },
         pl: {
@@ -31,6 +32,7 @@ i18next
             surname: 'Nazwisko',
             save: 'zapisz',
             saveUserAlert: 'uzytkownik został zapisany',
+            randomPicture: 'losowe zdjęcie',
           },
         },
       },

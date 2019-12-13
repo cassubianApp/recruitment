@@ -12,9 +12,9 @@ const profile = (state = {user: user, token: undefined}, action) => {
           lastName: action.user.lastName,
           firstName: action.user.firstName,
           picture: {
-              height: action.user.picture.height,
-              width: action.user.picture.width,
-              url: action.user.picture.url
+            height: action.user.picture.height,
+            width: action.user.picture.width,
+            url: action.user.picture.url
           }
         },
         token: action.token
