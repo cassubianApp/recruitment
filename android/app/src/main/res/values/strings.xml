@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Rekrutacja</string>
+    <string name="facebook_app_id">1212675598922552</string>
+    <string name="fb_login_protocol_scheme">fb1212675598922552</string>
+</resources>
