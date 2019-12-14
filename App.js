@@ -159,13 +159,13 @@ const App = connect(
 const AppContainer = () => {
 
   return (
-    <NavigationNativeContainer>
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-        </PersistGate>
-      </Provider>
-    </NavigationNativeContainer>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationNativeContainer>
+            <App />
+        </NavigationNativeContainer>
+      </PersistGate>
+    </Provider>
   )
 }
 
