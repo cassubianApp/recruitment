@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { persistStore, persistReducer } from 'redux-persist'
 import AsyncStorage from '@react-native-community/async-storage';
 import { PersistGate } from 'redux-persist/integration/react';
+import createFilter from 'redux-persist-transform-filter';
 
 //navigation
 import { NavigationNativeContainer } from '@react-navigation/native';
@@ -15,14 +16,14 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 
 //containers
-import Login from './containers/Login';
+import Login from './src/Login';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 //components
-import Home from './js/Home';
-import Profile from './js/Profile';
+import Home from './src/Home';
+import Profile from './src/Profile';
 
 //actions
 import { Logout } from './actions';
@@ -30,12 +31,16 @@ import { Logout } from './actions';
 //store
 import rootReducer from './reducers';
 
+const myFilter = createFilter('profile');
+
 const persistConfig = {
   key: 'root',
-  storage: AsyncStorage
+  storage: AsyncStorage,
+  transforms: [myFilter],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer);
-let store = createStore(persistedReducer);
+let store = createStore(persistedReducer, undefined);
+
 let persistor = persistStore(store);
 
 const App = connect(
