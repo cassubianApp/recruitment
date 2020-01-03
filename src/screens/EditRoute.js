@@ -1,11 +1,12 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import normalize from 'react-native-normalize';
+import PropTypes from 'prop-types';
 
 //ui
 import { TextInput, Button } from 'react-native-paper';
 
-export default ({user, SaveNewUser}) => {
+export default EditUser = ({user, SaveNewUser}) => {
 
     const { t } = useTranslation();
 
@@ -43,3 +44,8 @@ const styles = StyleSheet.create({
     container: {flex: 1},
     button: {margin: normalize(10)},
 });
+
+EditUser.propTypes = {
+    user: PropTypes.object.isRequired,
+    SaveNewUser: PropTypes.func.isRequired,
+};

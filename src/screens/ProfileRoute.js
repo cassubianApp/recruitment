@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Text, Avatar } from 'react-native-paper';
+import PropTypes from 'prop-types';
 
-export default ({user}) => {
+export default ProfileAvatar = ({user}) => {
 
     return(
         <View style={styles.container}>
@@ -15,3 +16,7 @@ export default ({user}) => {
 const styles = StyleSheet.create({
     container: {flex: 1, justifyContent: 'center', alignItems: 'center'},
 });
+
+ProfileAvatar.propTypes = {
+    user: PropTypes.object.isRequired
+};

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Login, Logout } from '../actions';
 
 import { 
-    SafeAreaView 
+    SafeAreaView,
+    StyleSheet
 } from 'react-native';
 
 import { LoginButton, AccessToken,GraphRequest,GraphRequestManager } from 'react-native-fbsdk';
@@ -11,7 +12,7 @@ import { LoginButton, AccessToken,GraphRequest,GraphRequestManager } from 'react
 const LoginComponent = ({ dispatch }) => {
 
     return(
-        <SafeAreaView style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+        <SafeAreaView style={styles.container}>
             <LoginButton
                 onLoginFinished={
                     (error, result) => {
@@ -54,5 +55,9 @@ const LoginComponent = ({ dispatch }) => {
         </SafeAreaView>
     )
 };
+
+const styles = StyleSheet.create({
+    container: {flex: 1, alignItems: 'center', justifyContent: 'center'},
+});
 
 export default connect()(LoginComponent)
